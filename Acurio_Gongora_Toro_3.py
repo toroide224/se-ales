@@ -321,3 +321,4 @@ def LarC():
     Se muestran rectificaciones de media onda y de onda completa
     """
     s.pyplot(Rectificada)
+LarC()
