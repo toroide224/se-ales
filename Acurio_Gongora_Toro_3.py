@@ -26,7 +26,7 @@ C3 = (2 * n.pi * TC2 - 2 * n.pi)**2
 C = n.concatenate((C1, C2, C3))
 
 """
-#Señales y sistemas
+# Señales y sistemas
 ## Series de fourier
 Esta sección se encuentra incompleta
 """
