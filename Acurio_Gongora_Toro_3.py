@@ -265,14 +265,14 @@ def LarC():
     F1 = 7000
     F2 = 4500
     F3 = 1200
-    delta = 1/(2 * FC)
+    delta = 1/(20 * FC)
 
     t = n.arange(0, 0.002 + 0.9 * delta, delta)
     X1 = A * n.cos(2 * n.pi * F1 * t)
     X2 = B * n.cos(2 * n.pi * F2 * t)
     X3 = C * n.cos(2 * n.pi * F3 * t)
     X = X1 + X2 + X3
-    XC = n.cos(2 * n.pi * FC * t) + 1/IDM
+    XC = n.cos(2 * n.pi * FC * t)
     
     f = n.arange(-len(t)/2, len(t)/2) / (delta * len(t))
     N = int(len(f) * (1/2 - 10000 * delta))
@@ -286,7 +286,7 @@ def LarC():
     p.subplot(2, 1, 2)
     p.plot(f[N : M], abs(XF[N : M] / len(f))**2)
 
-    XM = X * XC
+    XM = (X + abs(min)/IDM) * XC
     XMF = fftshift(fft(XM))
 
     Modulada = p.figure(figsize=(10,9))
